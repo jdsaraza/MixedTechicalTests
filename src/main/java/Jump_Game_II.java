@@ -30,18 +30,17 @@ public static void main(String[] args) {
 	System.out.println(test.jump(nums));
 }
     public int jump(int[] nums) {
-        int jumps = 0;          // Número de saltos realizados
-        int currentEnd = 0;     // Hasta dónde puedo llegar con los saltos hechos
-        int farthest = 0;       // Punto más lejano al que puedo llegar desde los puntos explorados
+        int jumps = 0;          // number of jumps made
+        int currentEnd = 0;     // How far can I get with the jumps made
+        int farthest = 0;       // The farthest point I can reach from the explored points
 
         for (int i = 0; i < nums.length - 1; i++) {
-            farthest = Math.max(farthest, i + nums[i]); // Actualizo el punto más lejano posible
-            if (i == currentEnd) {                      // Si llego al final del salto actual
-                jumps++;                                // Necesito hacer otro salto
-                currentEnd = farthest;                  // Actualizo el límite del próximo salto
+            farthest = Math.max(farthest, i + nums[i]); // I update the farthest point possible.
+            if (i == currentEnd) {                      // If I reach the end of the current jump
+                jumps++;                                // I need to make another jump
+                currentEnd = farthest;                  // I update the current end point
             }
         }
-
         return jumps;
     }
 
