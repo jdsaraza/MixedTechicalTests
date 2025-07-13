@@ -16,18 +16,19 @@ Constraints:
  */
 
     public static void main(String[] args) {
+        String word = "babad";
+        System.out.println("Longest Palindrome: "+ longestPalindrome(word));
     }
 
-    public String longestPalindrome(String s) {
-        StringBuilder palindrome = new StringBuilder();
+    public static String longestPalindrome(String s) {
+        String palindrome = "";
 
         for (int i = 0; i < s.length(); i++) {
             for (int j = s.length(); j > i; j--) {
-                if(s.substring(i,j).equals(new StringBuilder(s.substring(i,j)).reverse().toString()))
-                    return s.substring(i,j);
+                if(s.substring(i,j).contentEquals(new StringBuilder(s.substring(i,j)).reverse()))
+                    return s.substring(i,j);//if no finds palindromic, returns the first letter
             }
         }
-
-        return palindrome.toString();
+        return palindrome;
     }
 }
